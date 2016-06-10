@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Lugares</title>
+         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <link rel="stylesheet" href="css/estilolugares.css">
+    </head>
+    <body>
+    <div class="principal">
+        <nav>
+        <h1>Lugares Guardados</h1>
+        <div class="new">
+            <button onclick="newlugares()"><img scr="new.png"></button>
+            </div>
+            </nav>
+        <div class="contenedor" id="contenedor-lugares">
+        <div class="lugares"></div>
+        </div>
+        </div>
+    </body>
+    <script>
+        window.addEventListener('load', cargada,true);
+            function cargada(){
+             contador= localStorage.getItem('contador');
+                nombrelugar = localStorage.getItem('nombre');   
+                contador++;
+                mon = nombrelugar;
+                
+            var i = 0;
+                
+            while(i<mon.length){
+                
+                contenedorlugares = document.getElementById('contenedor-lugares');
+                contenedorlugares.innerHTML += "<div class='lugares'><p>nombre del lugar: "+mon[i]+"</p></div>"
+              i++;
+            }
+            }
+        function newlugares(){
+            window.location.assign('main.html');
+        }
+    </script>
+</html>

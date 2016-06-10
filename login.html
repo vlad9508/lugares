@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <title>LOGIN</title>
+        <link rel="stylesheet" href="css/estilologin.css">
+    </head>
+    <body>
+        <div class="principal">
+            
+            <div class="icono">
+                <img class="icon" src="img/uno.gif">
+            </div>
+            <form id="form" class="form" name="form">
+            <div class="base">
+                <input type="text" id="noml" class="noml "placeholder="Nombre" name="noml">
+                <input type="password" id="passl" class="passl" placeholder="Paswword" name="passl">
+                
+                <input id="registrar" class="registrar" value="Registrarme" type="button" onclick="registarme()">
+                <input id="login" class="login" value="login" type="button" onclick="comprobar()">
+            </div>        
+            </form>
+        </div>
+    </body>
+    <script>
+        
+        function comprobar(){  
+            var noml = document.getElementById('noml').value;
+            var nombre = localStorage.getItem('nombre');
+            var passl = document.getElementById('passl').value;
+            var password = localStorage.getItem('pass1');
+            
+            if( noml != nombre){
+                alert("ese no es tu usuario");
+                document.form.noml.focus();
+            }
+            else if(passl != password){
+                alert("esa no es tu contraseña");
+                document.form.passl.focus();
+            }
+            else{
+                window.location.assign('main.html');
+            }
+        };
+        
+        function registarme(){
+            window.location.assign('index.html');
+        };
+    </script>
+</html>

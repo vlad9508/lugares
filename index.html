@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <title>registro</title>
+        <link rel="stylesheet" href="css/estiloindex.css">
+    </head>
+    <body>
+        <div class="principal">
+            
+            <div class="titulo">
+            <h3>REGISTRO</h3>
+            </div>
+            <form id="form" class="form" name="form">
+            <div class="base">
+                
+                <input type="text" id="nom" class="nom" placeholder="Nombre" name="nom">
+                
+                <input type="text" id="cor" class="cor" placeholder="Corre" name="cor">
+                
+                <input type="password" id="pass1" class="pass1" placeholder="Password1" name="pass1">
+                
+                <input type="password" id="pass2" class="pass2" placeholder="Password2" name="pass2">
+            </div>
+            
+            <div class="reg">
+                <input id="registro" class="registro" value="registrarme" type="button" onclick="validar()">
+            </div>
+            </form>
+        </div>
+    </body>
+    <script>
+        var boton = document.getElementById('registro');
+    
+        var registrar = function(){
+            nombre = document.getElementById('nom').value;
+            correo = document.getElementById('cor').value;
+            pass1 = document.getElementById('pass1').value;
+            pass2 = document.getElementById('pass2').value;
+            
+            localStorage.setItem('nombre', nombre);
+            localStorage.setItem('correo', correo);
+            localStorage.setItem('pass1', pass1);
+            localStorage.setItem('pass2', pass2);
+        };
+        boton.addEventListener("click", registrar);
+        
+        
+        
+        function validar(){
+          if(document.form.nom.value==""){
+              alert("campo obliagtiro");
+              document.form.nom.focus();
+          }
+            else if(document.form.cor.value==""){
+              alert("campo obliagtiro");
+              document.form.cor.focus();
+          }
+            else if(document.form.pass1.value==""){
+              alert("campo obliagtiro");
+              document.form.pass1.focus();
+          }
+            else if(document.form.pass2.value==""){
+              alert("campo obliagtiro");
+              document.form.pass2.focus();
+          }
+            else if(document.form.pass1.value != document.form.pass2.value){
+              alert("las contraseñas no son iguales");
+              document.form.pass1.focus();
+          }
+            else {
+                window.location.assign('login.html');
+            }
+        };
+        
+    </script>
+    
+</html>

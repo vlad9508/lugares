@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <title>TU LUGAR</title>
+        <link rel="stylesheet" href="css/estilosmain.css">
+        
+    </head>
+    
+    <body>
+        <div class="principal">
+            
+            <div class="map">
+                <div class="img">
+                    <img id="mapa" class="img">
+                </div>
+            </div>
+            
+            <div class="baseform">
+       
+            
+            
+            <input class="nombre" type="text" name="nombre" id="nomb" maxlength="30" placeholder="Nombre del lugar">
+
+            <input class="precio" type="text" name="precio" id="prec" maxlength="30" placeholder="Precio de lo consumido">
+            
+            <input class="calificacion" type="text" name="calificacion" id="cali" maxlength="30" placeholder="Calificacion del lugar">
+            
+            <input class="categoria" type="text" name="categoria" id="cate" maxlength="30" placeholder="categoria">
+            
+            <button class="aceptar" type="submit" id="acepta" onclick="acep()">Guardar</button>
+            <button class="ver" onclick="verlugares()">Ver Lugares</button>
+            
+        
+        </div>
+            
+        </div>
+        
+    </body>
+    
+    <script>
+         window.addEventListener('load', dibujarMapa, 'true');
+        window.addEventListener('load', estoyAKI, 'true');
+        function estoyAKI(){
+            navigator.geolocation.getCurrentPosition(verPosicion);
+        };
+        function verPosicion(posicion){
+            localStorage.setItem('long', posicion.coords.longitude);
+            localStorage.setItem('lat', posicion.coords.latitude);
+        };  
+        function dibujarMapa() {
+        mapa = document.getElementById('mapa');
+        lat = localStorage.getItem('lat');
+        long = localStorage.getItem('long');
+        mapa.src="http://maps.googleapis.com/maps/api/staticmap?center" + lat + ',' + long + "&zoom=15&size=500x500&markers=color:red%7clabel:YO!%7c"+ lat + ',' + long;
+        }; 
+       
+        function acep(){ 
+            nom = document.getElementById('nomb').value;
+            pre = document.getElementById('prec').value;
+            cal = document.getElementById('cali').value;
+            cat = document.getElementById('cate').value;
+            if(nom != "" && pre != "" && cal != "" && cat != "" ){
+              var con =1;
+                contador= localStorage.getItem('contador');
+            localStorage.setItem('nombre'+contador, nom);
+            localStorage.setItem('precio'+contador, pre);
+            localStorage.setItem('califiacion'+contador, cal);
+            localStorage.setItem('categoria'+contador, cat);
+            localStorage.setItem('lat'+contador, lat);
+            localStorage.setItem('long'+contador, long);
+            contador++;
+            localStorage.setItem('contador', contador);
+            
+          }
+            else {
+              alert("Falta un campo obliagtiro");
+             
+          }
+          
+            
+        };
+        function verlugares(){
+            window.location.assign('lugares.html');
+        }
+    </script>
+</html>

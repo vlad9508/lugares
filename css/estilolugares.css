@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.principal{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    float: left;
+    background: #9b0701;
+}
+
+nav{
+    width: 100%;
+    height: 60px;
+    background: #fef0ef;
+    border-bottom: 1px solid #42786D;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 9999;
+}
+
+nav button{
+    height: 60px;
+    width: 20%;
+    border-right-color: 1px solid black;
+    float: left;
+    box-sizing: border-box;
+}
+nav h1{
+    float: right;
+    width: 80%;
+    text-align: center;
+    height: 60px;
+    line-height: 50px;
+   border-right: 1px solid black;
+    border-left: 2px solid black;
+    box-sizing: border-box;
+    font-weight: 300;
+}
+
+.contenedor{
+    float: left;
+    width: 80%;
+    left: 10%;
+    position: absolute;
+    top: 75px;
+    background: #DFDFDF;
+    height: 100%;
